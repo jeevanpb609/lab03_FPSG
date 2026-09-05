@@ -1168,11 +1168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184022e93b3bd3947b83def6a5090e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 4
-  minX: -2.5
-  maxX: 2.5
-  minY: -2
-  maxY: 0.5
+  moveSpeed: 3
+  minX: -8.5
+  maxX: 8.5
+  minY: -5.47
+  maxY: 3.53
   shootPower: 7
 --- !u!1001 &6659215366849477512
 PrefabInstance:

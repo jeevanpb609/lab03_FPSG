@@ -4,10 +4,12 @@ public class PlayerController : MonoBehaviour
 {
     // Movement Settings
     public float moveSpeed = 4f;
-    public float minX = -2.5f;
-    public float maxX = 2.5f;
-    public float minY = -2f;
-    public float maxY = 0.5f;
+
+    // ✅ Pitch Boundaries (calculated from your pitch)
+    public float minX = -8.5f;
+    public float maxX = 8.5f;
+    public float minY = -5.47f;
+    public float maxY = 3.53f;
 
     // Shooting Settings
     public float shootPower = 12f;
@@ -32,8 +34,11 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector3(moveX, moveY, 0).normalized;
         Vector3 newPos = transform.position + moveDirection * moveSpeed * Time.deltaTime;
+
+        // ✅ Clamp player within pitch boundaries
         newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
         newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
+
         transform.position = newPos;
 
         // === BALL ATTACHMENT ===
@@ -141,11 +146,11 @@ public class PlayerController : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-            Application.Quit();
+        Application.Quit();
 #endif
     }
 
-    // === VISUAL DEBUG ===
+    // === VISUAL DEBUG: Show Pitch Boundaries ===
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
